@@ -76,31 +76,3 @@ void mm(Tensor2D A, Tensor2D B, Tensor2D *C) {
     }
   }
 }
-
-#ifdef BERT_IMPLEMENTATION
-
-bool test_mm() {
-  Tensor2D A = {.dims = {2, 4}, .data = calloc(4, sizeof(tensor_t))};
-
-  Tensor2D B = {.dims = {4, 4}, .data = calloc(16, sizeof(tensor_t))};
-  Tensor2D C = {.dims = {2, 4}, .data = calloc(8, sizeof(tensor_t))};
-
-  mm(A, B, &C);
-
-  return true;
-}
-
-int main(int argc, char **argv) {
-
-  // Feed forward network
-  // Y = X @ W
-  //
-  // X: [B, A, B];
-  // W: [B, B, C];
-  // Y: [B, A, C];
-
-  printf("Hello world!\n");
-  test_mm();
-}
-
-#endif
