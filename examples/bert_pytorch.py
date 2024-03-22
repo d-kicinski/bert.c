@@ -5,6 +5,8 @@ def show_bert():
     model_name = "sentence-transformers/all-MiniLM-L6-v2"
     model = BertModel.from_pretrained(model_name)
     print(model.encoder.layer[0].attention.self.query)
+    print(model.encoder.layer[0].attention.self.key)
+    print(model.encoder.layer[0].attention.self.value)
     tokenizer = BertTokenizer.from_pretrained(model_name)
     text = "hello there"
     model_input = tokenizer(text, return_tensors="pt")
